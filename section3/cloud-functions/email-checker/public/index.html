@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Email Checker</title>
+</head>
+<body>
+   <textarea id="email_text" rows="1" cols="60">
+    </textarea>
+    <button onclick="submitEmail()">Check Email</button>
+
+    <script>
+        function submitEmail() {
+            url = 'https://us-central1-prosperii-jarvis.cloudfunctions.net/hello-world?name='
+            email = document.getElementById('email_text').value
+            fetch(url)
+            .then(res => {res.json()})
+            .then(resJson => alert(resJson['response']))
+        } 
+    </script>
+</body>
+</html>
