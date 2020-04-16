@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Email Checker</title>
+</head>
+<body>
+   <textarea id="email_text" rows="1" cols="60">
+    </textarea>
+    <button onclick="submitEmail()">Check Email</button>
+
+    <script>
+        function httpGet(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+            return xmlHttp.responseText;
+        }
+        function submitEmail() {
+            url = 'https://us-central1-compute-engine-trial-274110.cloudfunctions.net/email-checker?email='
+            
+            console.log(JSON.parse(httpGet(url)).response)
+        } 
+    </script>
+</body>
+</html>
